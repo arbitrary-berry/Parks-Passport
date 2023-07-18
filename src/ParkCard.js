@@ -1,14 +1,11 @@
 import React from "react";
-import ShowDetails from "./ShowDetails"
 
 
-
-function ParkCard({ image, name, emojis }) {
+function ParkCard({Photo, LocationName}) {
     return (
-        <div>
-            <img scr={image} alt={name}/>
-            <h3>{emojis} {name}</h3>
-            <ShowDetails />
+        <div className="card">
+            <img src={Photo} alt={LocationName}/>
+            <h2>{LocationName}</h2>
         </div>
     )
 }
