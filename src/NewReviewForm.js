@@ -32,7 +32,8 @@ function NewReviewForm({ parks, onNewReview }) {
                 <input
                 type="text"
                 name="review"
-                placeholder="Write your Review Here"></input>
+                placeholder="Write your Review Here"
+                onChange={handleForm}></input>
                 <button type="submit">Add Review</button>
             </form>
             <></>
