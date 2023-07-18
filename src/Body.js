@@ -10,8 +10,8 @@ function Body() {
     useEffect(() => {
         fetch("http://localhost:3000/parks")
             .then(res => res.json())
-            .then(setParks)
-    })
+            .then((parks) => setParks(parks))
+    }, [])
 
     const parksToDisplay = parks.filter(park => park.LocationNumber.toLowerCase().includes
     (searchTerm.toLowerCase()))
