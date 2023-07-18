@@ -5,23 +5,23 @@ import Search from "./Search"
 
 function Body() {
     const [parks, setParks] = useState([])
-    const [searchInput, setSearchInput] = useState("");
-    
-    useEffect(() => {
-        fetch('http://localhost:3000/parks')
-        .then(res => res.json())
-        .then((parks) => setParks(parks))
-    }, []);
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const parksToDisplay = parks.filter(park => park.name?.toLowerCase().includes
-    (searchInput.toLowerCase()))
+    useEffect(() => {
+        fetch("http://localhost:3000/parks")
+            .then(res => res.json())
+            .then(setParks)
+    })
+
+    const parksToDisplay = parks.filter(park => park.LocationNumber.toLowerCase().includes
+    (searchTerm.toLowerCase()))
 
     return (
         <div>
             <Map />
             <Search 
-                searchInput={searchInput}
-                onSearchChange={setSearchInput}
+                searchTerm={searchTerm}
+                onSearchChange={setSearchTerm}
             />
             <ParkList parks={parksToDisplay}/>
         </div>
