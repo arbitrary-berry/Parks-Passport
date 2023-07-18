@@ -4,7 +4,8 @@ import Body from "./Body"
 import Profile from "./Profile"
 
 
-function App() {
+function App({}) {
+
     return (
         <div>
             <Header />
