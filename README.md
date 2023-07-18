@@ -82,3 +82,40 @@ Black: #000
 ## Fonts
 font-family: 'Nunito', sans-serif;
 font-family: 'Roboto', sans-serif;
+
+
+## React Icons
+
+Installation:
+npm install react-icons --save
+
+WishList-
+Heart outline:
+AiOutlineHeart
+
+Filled heart:
+AiFillHeart
+
+Visit Again-
+Double Heart outline:
+RiHeartsLine
+
+Filled double heart:
+RiHeartsFill
+
+Visited-
+Pin outline:
+BsPinMap
+
+Filled Pin:
+BsPinMapFill
+
+
+
+React Icons usage:
+import { FaBeer } from 'react-icons/fa';
+class Question extends React.Component {
+  render() {
+    return <h3> Lets go for a <FaBeer />? </h3>
+  }
+}
