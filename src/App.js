@@ -2,7 +2,7 @@ import React from "react";
 import PageHeader from "./PageHeader";
 import Body from "./Body"
 import Profile from "./Profile"
-import { Grid } from 'semantic-ui-react'
+import { Grid, Divider } from 'semantic-ui-react'
 
 
 function App() {
@@ -13,14 +13,14 @@ function App() {
             <Grid>
                 <Grid.Column width={1}>
                 </Grid.Column>
-                <Grid.Column width={3}>
+                <Grid.Column width={4}>
                     <Profile /> 
                 </Grid.Column>
-                <Grid.Column width={11}>
+                <Divider vertical />
+                <Grid.Column width={10}>
                     <Body /> 
                 </Grid.Column>
-                <Grid.Column width={1}>
-                </Grid.Column>
+
             </Grid>
         </div>
     )

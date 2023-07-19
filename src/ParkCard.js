@@ -12,7 +12,7 @@ const extra = (
     <Card>
         <Card.Content>
             <Image
-                src={Photo}
+                src={Photo} 
             />
             <Divider />
             <Card.Header>{LocationName}</Card.Header>

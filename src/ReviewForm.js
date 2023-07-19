@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import Reviews from "./Reviews"
 import { Button, Form, Select, TextArea, Divider } from 'semantic-ui-react'
 
+const initialFormState = {
+  name: "",
+  review: "",
+}
+
 function ReviewForm({ parks, reviews, addNewReview }) {
-    const [form, setForm] = useState ({
-        name: "",
-        review: "",
-    })
+    const [form, setForm] = useState (initialFormState)
 
     const options = parks ? parks.map((park) => (
         { key: park.LocationNumber, text: park.LocationName, value: park.LocationName }
       )) : [];
     
   
-    function handleForm(e) {
-        setForm({...form, [e.target.name] : e.target.value })
+    function handleForm(e, data) {
+      setForm({...form, [data.name] : data.value })
     }
 
         function handleSubmit(e){
@@ -29,9 +30,8 @@ function ReviewForm({ parks, reviews, addNewReview }) {
         })
         .then(res =>res.json())
         .then(newReview => {addNewReview(newReview)})
+      setForm(initialFormState)
     }
-    //need to add clearing the form
-
   
       return (
         <div>
@@ -42,23 +42,23 @@ function ReviewForm({ parks, reviews, addNewReview }) {
               control={Select}
               label='National Park'
               options={options}
+              value={form.name}
               name='name'
               placeholder='National Park'
-              onChange={handleForm}
+              onChange={(e,data) => handleForm(e,data)}
             />
           </Form.Group>
           <Form.Field
             control={TextArea}
             label='Review'
             name='review'
+            value={form.review}
             placeholder='Write your review here...'
-            onChange={handleForm}
+            onChange={(e,data) => handleForm(e,data)}
           />
           <Form.Field control={Button}>Submit</Form.Field>
         </Form>
-        <Divider />
-        <Reviews />
-        <Divider />
+        <Divider></Divider>
         </div>
       )
     }
