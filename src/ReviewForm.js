@@ -2,31 +2,36 @@ import React, { useState } from "react";
 import Reviews from "./Reviews"
 import { Button, Form, Select, TextArea, Divider } from 'semantic-ui-react'
 
-function NewReviewForm({ parks, onNewReview }) {
+function ReviewForm({ parks, reviews, addNewReview }) {
     const [form, setForm] = useState ({
         name: "",
         review: "",
     })
 
     const options = parks ? parks.map((park) => (
-        { key: park.LocationNumber, text: park.LocationName }
+        { key: park.LocationNumber, text: park.LocationName, value: park.LocationName }
       )) : [];
     
   
     function handleForm(e) {
-        setForm({...form, review: e.target.value })
+        setForm({...form, [e.target.name] : e.target.value })
     }
 
         function handleSubmit(e){
         e.preventDefault()
-        fetch('http://localhost:3000/parks', {
+        fetch('http://localhost:3000/reviews', {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
-            body: JSON.stringify(form)
+            body: JSON.stringify({
+              'name' : form.name,
+              'review' : form.review
+            })
         })
         .then(res =>res.json())
-        .then(newReview => {onNewReview(newReview)})
+        .then(newReview => {addNewReview(newReview)})
     }
+    //need to add clearing the form
+
   
       return (
         <div>
@@ -37,12 +42,15 @@ function NewReviewForm({ parks, onNewReview }) {
               control={Select}
               label='National Park'
               options={options}
+              name='name'
               placeholder='National Park'
+              onChange={handleForm}
             />
           </Form.Group>
           <Form.Field
             control={TextArea}
             label='Review'
+            name='review'
             placeholder='Write your review here...'
             onChange={handleForm}
           />
@@ -56,5 +64,4 @@ function NewReviewForm({ parks, onNewReview }) {
     }
 
 
-export default NewReviewForm
-// {parks?.map((park) => <option key={park.LocationNumber} value={park.value}>{park.LocationName}</option>)}
+export default ReviewForm

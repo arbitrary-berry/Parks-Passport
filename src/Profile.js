@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import NewReviewForm from "./NewReviewForm"
+import ReviewForm from "./ReviewForm"
 import WishList from "./WishList"
 
 
 function Profile() {
     const [parks, setParks] = useState([])
+    const [reviews, setReviews] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:3000/parks")
@@ -12,14 +13,14 @@ function Profile() {
             .then((parks) => setParks(parks))
     }, [])
 
-    function handleNewReview(newReview) {
+    function addNewReview(newReview) {
         setParks([...parks, newReview])
     }
 
 
     return (
         <div>
-            <NewReviewForm onNewReview={handleNewReview}/>
+            <ReviewForm parks={parks} reviews={reviews} addNewReview={addNewReview}/>
             <WishList />
         </div>
 
@@ -37,15 +38,3 @@ export default Profile
 //         <Reviews />
 //     </div>
 // )
-
-
-
-{/* <Segment.Item>
-<NewReviewForm onNewReview={handleNewReview}/>
-</Segment.Item>
-<Segment.Item>
-<WishList />
-</Segment.Item>
-<Segment.Item>
-<Reviews />
-</Segment.Item>   */}
