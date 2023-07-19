@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import Reviews from "./Reviews"
+import { Button, Form, Select, TextArea, Divider } from 'semantic-ui-react'
 
 function NewReviewForm({ parks, onNewReview }) {
     const [form, setForm] = useState ({
@@ -7,39 +8,53 @@ function NewReviewForm({ parks, onNewReview }) {
         review: "",
     })
 
+    const options = parks ? parks.map((park) => (
+        { key: park.LocationNumber, text: park.LocationName }
+      )) : [];
+    
+  
     function handleForm(e) {
-        setForm({...form, [e.target.value] : e.target.value})
+        setForm({...form, review: e.target.value })
     }
 
-    function handleSubmit(e){
+        function handleSubmit(e){
         e.preventDefault()
         fetch('http://localhost:3000/parks', {
             method: 'POST',
-            headers: { 'Content-Type' : 'application.json'},
+            headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify(form)
         })
         .then(res =>res.json())
         .then(newReview => {onNewReview(newReview)})
     }
-    return (
-        <div className="new-review-form">
-            <h2>Parks I've Visited</h2>
-            <form onSubmit={handleSubmit}>
-                <select
-                className="ui selection dropdown">
-                    {parks?.map((park) => <option key={park["Location Number"]} value={park.value}>{park["Location Name"]}</option>)}
-                </select>
-                <input
-                type="text"
-                name="review"
-                placeholder="Write your Review Here"
-                onChange={handleForm}></input>
-                <button type="submit">Add Review</button>
-            </form>
-            <></>
+  
+      return (
+        <div>
+        <Form onSubmit={handleSubmit}>
+            <h3>My Park Reviews</h3>
+          <Form.Group widths='equal'>
+            <Form.Field
+              control={Select}
+              label='National Park'
+              options={options}
+              placeholder='National Park'
+            />
+          </Form.Group>
+          <Form.Field
+            control={TextArea}
+            label='Review'
+            placeholder='Write your review here...'
+            onChange={handleForm}
+          />
+          <Form.Field control={Button}>Submit</Form.Field>
+        </Form>
+        <Divider />
+        <Reviews />
+        <Divider />
         </div>
-    )
-}
+      )
+    }
+
 
 export default NewReviewForm
-
+// {parks?.map((park) => <option key={park.LocationNumber} value={park.value}>{park.LocationName}</option>)}

@@ -1,13 +1,17 @@
 import React from "react";
 import ParkCard from "./ParkCard"
+import { Card } from "semantic-ui-react";
 
 
-function ParkList({parks}) {
-    const parkCards = parks.map(park => {
-    return <ParkCard key={park["Location Number"]} {...park}/>
+function ParkList({ parks }) {
+    const parkCards = parks.map((park) => {
+    return <ParkCard key={park.LocationNumber} {...park}/>
 })
-    return (
-        <ul className="cards">{parkCards}</ul>
+    return (    
+    <Card.Group itemsPerRow={3}>
+        {parkCards}
+      </Card.Group>
+
     )
 }
 

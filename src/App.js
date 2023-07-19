@@ -1,16 +1,27 @@
 import React from "react";
-import Header from "./Header";
+import PageHeader from "./PageHeader";
 import Body from "./Body"
 import Profile from "./Profile"
+import { Grid } from 'semantic-ui-react'
 
 
-function App({}) {
+function App() {
 
     return (
         <div>
-            <Header />
-            <Body />
-            <Profile />
+            <PageHeader />
+            <Grid>
+                <Grid.Column width={1}>
+                </Grid.Column>
+                <Grid.Column width={3}>
+                    <Profile /> 
+                </Grid.Column>
+                <Grid.Column width={11}>
+                    <Body /> 
+                </Grid.Column>
+                <Grid.Column width={1}>
+                </Grid.Column>
+            </Grid>
         </div>
     )
 }

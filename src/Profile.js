@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NewReviewForm from "./NewReviewForm"
 import WishList from "./WishList"
-import Reviews from "./Reviews"
-
 
 
 function Profile() {
+    const [parks, setParks] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/parks")
+            .then(res => res.json())
+            .then((parks) => setParks(parks))
+    }, [])
+
+    function handleNewReview(newReview) {
+        setParks([...parks, newReview])
+    }
+
+
     return (
         <div>
-            <NewReviewForm />
+            <NewReviewForm onNewReview={handleNewReview}/>
             <WishList />
-            <Reviews />
         </div>
-    )
+
+)
 }
 
 export default Profile
+
+
+// used to before    
+// return (
+//     <div>
+//         <NewReviewForm />
+//         <WishList />
+//         <Reviews />
+//     </div>
+// )
+
+
+
+{/* <Segment.Item>
+<NewReviewForm onNewReview={handleNewReview}/>
+</Segment.Item>
+<Segment.Item>
+<WishList />
+</Segment.Item>
+<Segment.Item>
+<Reviews />
+</Segment.Item>   */}
