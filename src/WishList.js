@@ -1,13 +1,21 @@
 import React from "react";
+import { Card, Icon, Image } from 'semantic-ui-react'
+import { AiFillHeart } from 'react-icons/ai'
 
 
 
 function WishList() {
     return (
-        <div>
-            <></>
-        </div>
+        <Card>
+        <Card.Content>
+          <h3>WishList</h3>
+          <Card.Description>
+            <AiFillHeart></AiFillHeart> <span>Name of National Park</span>
+          </Card.Description>
+        </Card.Content>
+      </Card>
     )
 }
 
 export default WishList
+//<Card.Header>WishList</Card.Header>

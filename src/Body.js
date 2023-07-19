@@ -13,7 +13,7 @@ function Body() {
             .then((parks) => setParks(parks))
     }, [])
 
-    const parksToDisplay = parks.filter(park => park.LocationNumber.toLowerCase().includes
+    const parksToDisplay = parks.filter(park => park.LocationName.toLowerCase().includes
     (searchTerm.toLowerCase()))
 
     return (
