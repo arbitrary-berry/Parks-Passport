@@ -23,18 +23,3 @@ function Home() {
     )
 }
 export default Home
-
-/* <div>
-<Divider></Divider>
-<Grid>
-    <Grid.Column width={1}>
-    </Grid.Column>
-    <Grid.Column width={4}>
-        <Profile /> 
-    </Grid.Column>
-    <Divider vertical />
-    <Grid.Column width={10}>
-        <Body /> 
-    </Grid.Column>
-</Grid>
-</div> */

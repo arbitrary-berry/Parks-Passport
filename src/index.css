@@ -3,16 +3,22 @@
   padding: 0;
 }
 
-#PageHeader {
-  background: #f1e4da;
+header {
+  text-align: center;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
 }
 
 nav {
   text-align: center;
+}
+iframe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 nav a {
@@ -29,4 +35,10 @@ nav a:hover,
 nav a:active {
   color: #749472;
   border-bottom: 2px solid #749472;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
