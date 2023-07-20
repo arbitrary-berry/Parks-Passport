@@ -1,28 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import { Routes, Route } from 'react-router-dom';
 import PageHeader from "./PageHeader";
-import Body from "./Body"
-import Profile from "./Profile"
-import { Grid, Divider } from 'semantic-ui-react'
+import Home from "./Home";
+import NavBar from "./NavBar";
+import About from "./About";
+import ShowDetails from "./ShowDetails";
+import { Divider } from 'semantic-ui-react';
 
 
 function App() {
-
+    const [page, setPage] = useState("/")
     return (
         <div>
+            <Divider></Divider>
             <PageHeader />
-            <Grid>
-                <Grid.Column width={1}>
-                </Grid.Column>
-                <Grid.Column width={4}>
-                    <Profile /> 
-                </Grid.Column>
-                <Divider vertical />
-                <Grid.Column width={10}>
-                    <Body /> 
-                </Grid.Column>
-
-            </Grid>
+            <NavBar onChangePage={setPage} />
+            <Routes>
+				<Route path="/" element={ <Home /> }/>
+				<Route path="/about" element={ <About />} />
+                <Route path="/:LocationNumber" element={ <ShowDetails /> }/>
+			</Routes>
         </div>
     )
 }
 export default App
+
+/* <main>
+<Nav />
+<Home />
+<About />
+<Contact />
+</main> */
+
+/* <div>
+<Nav />
+<Routes>
+    <Route path="/" element={ <Home /> }/>
+    <Route path="/about" element={ <About /> }/>
+    <Route path="contact" element={ <Contact /> }/>
+</Routes>
+</div> */

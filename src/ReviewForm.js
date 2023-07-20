@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button, Form, Select, TextArea, Divider } from 'semantic-ui-react'
+import { Button, Form, Select, TextArea, Divider } from 'semantic-ui-react';
+ 
 
 const initialFormState = {
   name: "",
@@ -8,7 +9,6 @@ const initialFormState = {
 
 function ReviewForm({ parks, reviews, addNewReview }) {
     const [form, setForm] = useState (initialFormState)
-
     const options = parks ? parks.map((park) => (
         { key: park.LocationNumber, text: park.LocationName, value: park.LocationName }
       )) : [];
@@ -30,7 +30,7 @@ function ReviewForm({ parks, reviews, addNewReview }) {
         })
         .then(res =>res.json())
         .then(newReview => {addNewReview(newReview)})
-      setForm(initialFormState)
+        setForm(initialFormState)
     }
   
       return (

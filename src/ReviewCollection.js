@@ -1,11 +1,10 @@
 import React from "react";
 import ReviewCard from './ReviewCard'
-import { Header, Card } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 
 
 
-//need to map over the reviews to show them and somehow tell the form to go here
-function ReviewContainer({ reviews }) {
+function ReviewCollection({ reviews }) {
     const reviewCard = reviews.map((review) => {
     return <ReviewCard key={review.id} name={review.name} review={review.review} />
 })
@@ -19,4 +18,4 @@ function ReviewContainer({ reviews }) {
     )
 }
 
-export default ReviewContainer
+export default ReviewCollection

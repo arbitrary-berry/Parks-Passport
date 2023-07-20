@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ReviewForm from "./ReviewForm"
-import WishList from "./WishList"
-import ReviewContainer from "./ReviewContainer"
+import ReviewForm from "./ReviewForm";
+import WishList from "./WishList";
+import ReviewCollection from "./ReviewCollection";
 
 
 function Profile() {
@@ -28,7 +28,7 @@ function Profile() {
     return (
         <div>
             <ReviewForm parks={parks} addNewReview={addNewReview}/>
-            <ReviewContainer reviews={reviews} />
+            <ReviewCollection reviews={reviews} />
             <WishList />
         </div>
 
@@ -36,13 +36,3 @@ function Profile() {
 }
 
 export default Profile
-
-
-// used to before    
-// return (
-//     <div>
-//         <NewReviewForm />
-//         <WishList />
-//         <Reviews />
-//     </div>
-// )
