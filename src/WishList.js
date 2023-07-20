@@ -2,8 +2,6 @@ import React from "react";
 import { Card } from 'semantic-ui-react';
 import { AiFillHeart } from 'react-icons/ai'
 
-
-
 function WishList() {
     return (
         <Card>
@@ -18,4 +16,3 @@ function WishList() {
 }
 
 export default WishList
-//<Card.Header>WishList</Card.Header>
