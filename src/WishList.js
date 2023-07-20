@@ -10,7 +10,7 @@ function WishList() {
         <Card.Content>
           <h3>WishList</h3>
           <Card.Description>
-            <AiFillHeart></AiFillHeart> <span>Name of National Park</span>
+            <AiFillHeart color="red"/><span>Name of National Park</span>
           </Card.Description>
         </Card.Content>
       </Card>
