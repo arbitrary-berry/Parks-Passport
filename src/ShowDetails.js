@@ -16,7 +16,8 @@ function ShowDetails() {
 
     return (
         <div>
-            <Card>
+            <Divider />
+            <Card centered>
                 <Card.Content>
                     <Image
                     src={park.Photo} 
@@ -25,7 +26,7 @@ function ShowDetails() {
                     <Card.Header>{park.LocationName}</Card.Header>
                     <Card.Description>{park.Tagline}</Card.Description>                    
                 </Card.Content>
-                <Card.Content extra>
+                <Card.Content>
                     <h4>{park.City}, {park.State} {park.ZipCode}</h4>
                     <p>Coordinates: {park.Location?.coordinates[0]}, {park.Location?.coordinates[1]}</p>
                     <a href={park.Website}>Website</a>

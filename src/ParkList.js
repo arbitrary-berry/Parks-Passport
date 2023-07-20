@@ -8,7 +8,7 @@ function ParkList({ parks }) {
     return <ParkCard key={park.LocationNumber} {...park}/>
 })
     return (    
-    <Card.Group itemsPerRow={3}>
+    <Card.Group>
         {parkCards}
       </Card.Group>
 
