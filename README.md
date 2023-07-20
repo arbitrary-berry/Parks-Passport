@@ -1,5 +1,7 @@
 # Parks Passport
  To run, clone down, run npm install, json-server --watch db.json, then npm start.
+
+![homeScreenshot](https://github.com/arbitrary-berry/Parks-Project/blob/main/src/Screen%20Shot%202023-07-20%20at%202.41.17%20PM.png)
 ## Introduction
 
 Park Passport is a demo application to keep track of all the National Parks you've visited and your reviews.
