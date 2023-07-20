@@ -3,9 +3,9 @@ import { Card, Image, Divider } from 'semantic-ui-react';
 import { AiOutlineHeart } from 'react-icons/ai';
 
 const extra = (
-    <a>
+    <div>
       <AiOutlineHeart />
-    </a>
+    </div>
   )
   
   const ParkCard = ({ Photo, LocationName, Tagline}) => (
