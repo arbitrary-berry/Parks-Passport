@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { Button, Form, Select, TextArea, Divider } from 'semantic-ui-react';
-import { useHistory } from 'react-router-dom';
+ 
 
 const initialFormState = {
   name: "",
   review: "",
 }
 
-function ReviewForm({ parks, reviewArr, addNewReview }) {
+function ReviewForm({ parks, reviews, addNewReview }) {
     const [form, setForm] = useState (initialFormState)
-    const history = useHistory();
-
     const options = parks ? parks.map((park) => (
         { key: park.LocationNumber, text: park.LocationName, value: park.LocationName }
       )) : [];
@@ -22,7 +20,7 @@ function ReviewForm({ parks, reviewArr, addNewReview }) {
 
         function handleSubmit(e){
         e.preventDefault()
-        fetch('http://localhost:3000/reviewArr', {
+        fetch('http://localhost:3000/reviews', {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({
@@ -31,10 +29,7 @@ function ReviewForm({ parks, reviewArr, addNewReview }) {
             })
         })
         .then(res =>res.json())
-        .then(newReview => {
-          history.push(`/reviews/${addNewReview(newReview)}`)
-        })
-        // .then(newReview => {addNewReview(newReview)})
+        .then(newReview => {addNewReview(newReview)})
         setForm(initialFormState)
     }
   

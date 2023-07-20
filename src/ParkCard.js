@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Image, Divider } from 'semantic-ui-react';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const extra = (
     <div>
@@ -8,7 +9,7 @@ const extra = (
     </div>
   )
   
-  const ParkCard = ({ Photo, LocationName, Tagline}) => (
+  const ParkCard = ({ Photo, LocationName, Tagline, LocationNumber }) => (
     <Card>
         <Card.Content>
             <Image
@@ -18,6 +19,7 @@ const extra = (
             <Card.Header>{LocationName}</Card.Header>
             <Card.Description>{Tagline}</Card.Description>
             <Card.Content extra>{extra}</Card.Content>
+            <Link to={`/${LocationNumber}`}>View Additional Information</Link>
         </Card.Content>
     </Card>
   )

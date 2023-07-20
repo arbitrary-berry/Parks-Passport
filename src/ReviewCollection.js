@@ -4,9 +4,9 @@ import { Header } from 'semantic-ui-react'
 
 
 
-function Reviews({ reviewArr }) {
-    const reviewCard = reviewArr.map((review) => {
-    return <ReviewCard key={reviewArr.id} name={reviewArr.name} review={reviewArr.review} />
+function ReviewCollection({ reviews }) {
+    const reviewCard = reviews.map((review) => {
+    return <ReviewCard key={review.id} name={review.name} review={review.review} />
 })
     return (
        <div>
@@ -18,4 +18,4 @@ function Reviews({ reviewArr }) {
     )
 }
 
-export default Reviews
+export default ReviewCollection

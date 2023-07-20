@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import ReviewForm from "./ReviewForm"
-import WishList from "./WishList"
-import Reviews from "./Reviews"
+import ReviewForm from "./ReviewForm";
+import WishList from "./WishList";
+import ReviewCollection from "./ReviewCollection";
 
 
 function Profile() {
     const [parks, setParks] = useState([])
-    const [reviewArr, setReviews] = useState([])
+    const [reviews, setReviews] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:3000/parks")
@@ -21,14 +21,14 @@ function Profile() {
     }, [])
 
     function addNewReview(newReview) {
-        setReviews([...reviewArr, newReview])
+        setReviews([...reviews, newReview])
     }
 
 
     return (
         <div>
             <ReviewForm parks={parks} addNewReview={addNewReview}/>
-            <Reviews reviews={reviewArr} />
+            <ReviewCollection reviews={reviews} />
             <WishList />
         </div>
 

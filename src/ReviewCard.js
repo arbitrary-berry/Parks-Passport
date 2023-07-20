@@ -3,13 +3,13 @@ import { Card, Comment } from 'semantic-ui-react';
 import { AiFillHeart } from 'react-icons/ai'
 
 
-function ReviewCard( reviewArr ) {
+function ReviewCard( reviews ) {
     return(
         <Card>
             <Card.Content>
-                <h5>{reviewArr.name}</h5>
+                <h5>{reviews.name}</h5>
             <Card.Description>
-                <p>{reviewArr.review}</p>
+                <p>{reviews.review}</p>
             </Card.Description>
             </Card.Content>
         </Card>

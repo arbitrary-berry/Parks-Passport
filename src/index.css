@@ -1,8 +1,32 @@
-body {
+* {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  padding: 0;
 }
+
+#PageHeader {
+  background: #f1e4da;
+}
+
 h1 {
   text-align: center;
 }
 
+nav {
+  text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #244c14;
+  border-bottom: 2px solid #244c14;
+  transition: 0.1s;
+}
+
+nav a:hover,
+nav a:active {
+  color: #749472;
+  border-bottom: 2px solid #749472;
+}
