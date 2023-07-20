@@ -3,7 +3,6 @@ import ReviewForm from "./ReviewForm";
 import WishList from "./WishList";
 import ReviewCollection from "./ReviewCollection";
 
-
 function Profile() {
     const [parks, setParks] = useState([])
     const [reviews, setReviews] = useState([])
@@ -23,7 +22,6 @@ function Profile() {
     function addNewReview(newReview) {
         setReviews([...reviews, newReview])
     }
-
 
     return (
         <div>

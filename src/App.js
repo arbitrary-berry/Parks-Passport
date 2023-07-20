@@ -24,19 +24,3 @@ function App() {
     )
 }
 export default App
-
-/* <main>
-<Nav />
-<Home />
-<About />
-<Contact />
-</main> */
-
-/* <div>
-<Nav />
-<Routes>
-    <Route path="/" element={ <Home /> }/>
-    <Route path="/about" element={ <About /> }/>
-    <Route path="contact" element={ <Contact /> }/>
-</Routes>
-</div> */
