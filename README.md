@@ -21,10 +21,10 @@ Ideas for future releases:
 
 - A login so each user can have their own passport profile.
 - National Park Service colors to the theme.
-- A click feature on the heart in each Park and have that added to the WishList on the left hand side.
+- A click feature on the heart in each Park and have that added to the WishList on the left-hand side.
 - A map at the top of US States and being able to click on each state and have it show in the body of the page the parks in that state.
 - Double heart as a click feature on the park card to mark you'd like to go back to that park.
-- Mappin as a click feature on the park card to mark you've visited that park.
+- Mapping as a click feature on the park card to mark you've visited that park.
 
 ## Contributing
 
